@@ -1,0 +1,23 @@
+replicaCount: 2
+
+image:
+  repository: python-api
+  tag: latest
+  pullPolicy: Never
+
+service:
+  port: 80
+
+redis:
+  image: redis:7
+  port: 6379
+  password: redis-123
+
+persistence:
+  enabled: true
+  size: 1Gi
+
+ingress:
+  enabled: true
+  host: localhost
+  path: /api/(.*)
